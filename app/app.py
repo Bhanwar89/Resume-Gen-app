@@ -12,22 +12,6 @@ from latex_helpers import (
 import config
 import streamlit.components.v1 as components
 
-def install_latex_dependencies():
-    commands = [
-        "apt-get update",
-        (
-            "apt-get install -y --no-install-recommends "
-            "texlive-latex-recommended texlive-latex-extra "
-            "texlive-fonts-extra latexmk build-essential"
-        ),
-        "apt-get clean",
-        "rm -rf /var/lib/apt/lists/*"
-    ]
-    
-    for cmd in commands:
-        print(f"📦 Running: {cmd}")
-        subprocess.run(cmd, shell=True, check=True)
-
 
 
 INSTRUCTION_TEXT = """
@@ -253,4 +237,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    install_latex_dependencies()
